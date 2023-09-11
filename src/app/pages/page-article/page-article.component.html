@@ -1,0 +1,25 @@
+<div class="row mb-1">
+  <div class="row mt-3">
+    <div class="col-md-8 ">
+       <h3>List des articles</h3>
+    </div>
+    <div class="col-md-4 text-end">
+      <app-boutton-actions (clickEvent)="nouvelArticle()">
+      </app-boutton-actions>
+    </div>
+    <div class="alert-danger alert" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
+  </div>
+  <div class="col m-3">
+    <app-details-article *ngFor="let article of listArticles"
+                         [articleDto]="article" (suppresdsionResult)="handleSuppression($event)"
+    ></app-details-article>
+  </div>
+  <div class="row m-3">
+    <div class="col-md-12 text-center">
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+
+</div>

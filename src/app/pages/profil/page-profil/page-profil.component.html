@@ -1,0 +1,49 @@
+<div class="row m-3 mb-3">
+  <div class=" card col-md-5 text-center">
+    <div class="col">
+      <div class="mb-3 mt-3">
+        <img src="assets/user.png" class="rounded-circle" width="200px" height="200px">
+      </div>
+      <div class="mb-3 mt-3">
+        <h2>{{currentUser.prenom}}</h2>
+        <small class="form-text text-muted">Adresse, Ville , 12345</small>
+      </div>
+        <div class="col mb-3 ">
+          <button type="button" class="btn btn-primary mr-3"><i class="bi bi-pencil-square"></i>&nbsp;Modifier le profil</button>
+          <a href="javascript :void" [routerLink]="['/changermotdepasse']"><button type="button" class="btn btn-warning"><i class="bi bi-file-lock2"></i> &nbsp;Modifier le mot de passe</button></a>
+        </div>
+    </div>
+  </div>
+
+  <div class=" card col-md-7 ">
+     <table class="table">
+       <tbody>
+       <tr>
+         <th scope="row">{{currentUser.nom}}</th>
+         <td>MBA</td>
+       </tr>
+       <tr>
+         <th scope="row">Nom Complet</th>
+         <td>{{currentUser.nom}}, {{currentUser.prenom}}</td>
+       </tr>
+       <tr>
+         <th scope="row">Adresse email</th>
+         <td>{{currentUser.email}}</td>
+       </tr>
+       <tr>
+         <th scope="row">Téléphone</th>
+         <td>{{currentUser.entreprise?.numTel}}</td>
+       </tr>
+       <tr>
+         <th scope="row">Adresse</th>
+         <td>32 alleé vauban</td>
+       </tr>
+       <tr>
+         <th scope="row">Entreprise</th>
+         <td>Accenture</td>
+       </tr>
+       </tbody>
+     </table>
+  </div>
+
+</div>

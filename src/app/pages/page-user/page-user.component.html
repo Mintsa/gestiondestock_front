@@ -1,0 +1,19 @@
+<div class="row mb-1">
+  <div class="row mt-3">
+    <div class="col-md-8 ">
+      <h3>List des Utilisateurs</h3>
+    </div>
+    <div class="col-md-4 text-end">
+      <app-boutton-actions (clickEvent)="newUtilisateur()"></app-boutton-actions>
+    </div>
+  </div>
+  <div class="col m-3">
+    <app-detail-user *ngFor="let currentUser of userList" [user]="currentUser" ></app-detail-user>
+  </div>
+  <div class="row m-3">
+    <div class="col-md-12 text-center">
+      <app-pagination></app-pagination>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,94 @@
+<div class="col m-3">
+  <div class="col-md-12" >
+    <h2>Nouvelle Commande {{origine}}</h2>
+  </div>
+
+    <div class="row custom-border p-3">
+      <div class="col-md-5 border-right">
+        <form>
+          <div class="col-md-12 mb-3">
+            <input type="text" class="form-control" placeholder="Code Commade">
+          </div>
+          <div class="mb-3">
+
+            <input type="text" class="form-control"  placeholder="Date commande">
+          </div>
+          <div class="mb-3">
+            <select class="form-select" name="cltFrs" [(ngModel)]="cltFrsForm">
+              <option selected>Selectionner un {{origine}}</option>
+              <option *ngFor="let cltfrs of cltFrsList" [ngValue]="cltfrs">{{cltfrs.nom}} &nbsp;{{cltfrs.prenom}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-5 border-right">
+        <div class="col">
+          <div class="row mb-1">
+            <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+            <div class="col-11">{{cltFrsForm.nom}}</div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-1"><i class="bi bi-envelope-at blue-color"></i></div>
+            <div class="col-md-11">{{cltFrsForm.mail}}</div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-1"><i class="bi bi-telephone blue-color"></i></div>
+            <div class="col-md-11">{{cltFrsForm.numTel}}</div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-1"><i class="bi bi-hourglass-top blue-color"></i></div>
+            <div class="col-md-11">EN PREPARATION ....</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <img [src]="cltFrsForm.photo ? cltFrsForm.photo: 'assets/user.png'" class="rounded-circle" width="100px" height="100px"/>
+      </div>
+    </div>
+
+  <!--- deuxième formulaire-->
+  <div class="row custom-border mt-2">
+    <form class="row p-4">
+      <div class="col-auto">
+        <input type="text"  class="form-control"name="Code article" placeholder="Code article" (input)="searchCltFrs()" [(ngModel)]="searchArticleCode">
+      </div>
+      <span>Search value: {{searchCltFrs.id}}</span>
+      <div class="col-auto">
+        <input type="number" class="form-control"  placeholder="Quantité">
+      </div>
+      <div class="col-auto">
+        <input type="number" class="form-control"  placeholder="Prix unitaire">
+      </div>
+
+      <div class="col-auto">
+        <button class="btn btn-success" type="button"><i class="bi bi-plus"></i></button>
+      </div>
+    </form>
+  </div>
+
+  <!--- Detail article-->
+  <div class=" row custom-border mt-2" style="max-height:300px; overflow-y:scroll">
+    <app-detail-commande></app-detail-commande>
+    <app-detail-commande></app-detail-commande>
+    <app-detail-commande></app-detail-commande>
+  </div>
+
+  <div class=" row custom-border mt-2 text-end" >
+     <h2>Total de la commande :    4500</h2>
+  </div>
+
+
+
+  <div class="col-md-11 text-end m-3">
+    <button type="button" class="btn btn-danger mr-3">
+      <i class="bi bi-x-circle"></i> &nbsp;Annuler</button>
+    <button type="button" class="btn btn-primary">
+      <i class="bi bi-box-arrow-down"></i> &nbsp;Enregistrer</button>
+  </div>
+
+</div>

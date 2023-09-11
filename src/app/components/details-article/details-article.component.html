@@ -1,0 +1,82 @@
+<div class="row mb-1 mr-0 custom-border">
+    <div class="col-md-1 mb-1 mr-0 border-right" >
+      <div><img [src]=" articleDto.photo ? articleDto.photo :' assets/camera.jpg'" width="100px" height="100px" class="rounded-circle"></div>
+    </div>
+
+  <div class="col-md-5 border-right">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+        <div class="col-11">{{articleDto.codeArticle}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+        <div class="col-md-11">{{articleDto.designation}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-currency-dollar blue-color"></i></div>
+        <div class="col-md-11">{{articleDto.prixUnitaireHt}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-currency-dollar blue-color"></i></div>
+        <div class="col-md-11">{{articleDto.prixUnitaireTtc}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 border-right">
+    <div class="row">
+      <div class="col-md-2">
+        <i class="bi bi-flag-fill blue-color"></i>
+      </div>
+
+      <div class="col-md-10">
+        <div class="row">
+          <div>{{articleDto.category?.code}}</div>
+          <div>{{articleDto.category?.designation}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+   <div class="row">
+     <div class="col-md-4">
+       <button type="button" class="btn btn-link btn-primary"[routerLink]="['/nouvelarticle',articleDto.id]"><i class="bi bi-pencil"></i> &nbsp;Modifier</button>
+     </div>
+     <div class="col-md-4">
+       <button type="button" class="btn btn-link btn-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#modalDeleteArticle'+ articleDto.id "><i class="bi bi-trash3"></i> &nbsp;Supprimer</button>
+
+     </div>
+     <div class="col-md-4">
+       <button type="button" class="btn btn-link btn-primary"><i class="bi bi-card-list"></i> &nbsp;Details</button>
+     </div>
+   </div>
+  </div>
+  <!-- Modal-->
+  <div class="modal fade" id="modalDeleteArticle{{articleDto.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Etes-vous sûr de vouloir supprimer cet item ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger"(click)="confirmSuppressionArticle()">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Modal -->

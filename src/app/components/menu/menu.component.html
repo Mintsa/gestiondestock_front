@@ -1,0 +1,24 @@
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item" *ngFor="let menu of menuProperties">
+    <h2 class="accordion-header">
+      <button class="accordion-button- btn btn-link btn-block text-lg-center" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#panelsStayOpen-collapse' + menu.id" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        <i class="{{menu?.icon}}"></i> &nbsp;
+        {{menu.titre}}
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapse{{menu.id}}" class="accordion-collapse collapse show" >
+      <div class="accordion-body">
+        <div class="card" >
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let sousMenu of menu.sousMenu">
+             <a href="javascript:void(0)" (click)="navigate(sousMenu!)" style="color: inherit">
+               <i class="{{sousMenu.icon}}">
+               {{sousMenu.titre}}
+               </i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

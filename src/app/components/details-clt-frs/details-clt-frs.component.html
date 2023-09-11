@@ -1,0 +1,78 @@
+<div class="row mb-1 mr-0 custom-border">
+  <div class="col-md-1 mb-1 mr-0 border-right" >
+    <div><img [src]=" clientsFournisseur.photo ? clientsFournisseur.photo :' assets/camera.jpg'" width="100px" height="100px" class="rounded-circle"></div>
+  </div>
+
+  <div class="col-md-5 border-right">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+        <div class="col-11">{{clientsFournisseur.nom}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+        <div class="col-md-11">{{clientsFournisseur.prenom}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-telephone blue-color"></i></div>
+        <div class="col-md-11">{{clientsFournisseur.numTel}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 border-right mb-1 mt-1">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-house-check blue-color"></i></div>
+        <div class="col-md-11"> {{clientsFournisseur.adresse?.adresse1}}&nbsp; {{clientsFournisseur.adresse?.adresse2}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-geo-alt-fill blue-color"></i></div>
+        <div class="col-md-11">{{clientsFournisseur.adresse?.codePostale}} &nbsp; {{clientsFournisseur.adresse?.ville}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-globe-americas blue-color"></i></div>
+        <div class="col-md-11"> {{clientsFournisseur.adresse?.pays}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-3">
+    <div class="row">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link btn-primary" (click)="updateCltFrs(clientsFournisseur.id)"><i class="bi bi-pencil"></i> &nbsp;Modifier</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link btn-danger text-bg-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#modalDeleteClient'+ clientsFournisseur.id "><i class="bi bi-trash3"></i> &nbsp;Supprimer</button>
+
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link btn-primary"><i class="bi bi-card-list"></i> &nbsp;Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal-->
+  <div class="modal fade" id="modalDeleteClient{{clientsFournisseur.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Etes-vous sûr de vouloir supprimer cet item ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmSuppressionClient()">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

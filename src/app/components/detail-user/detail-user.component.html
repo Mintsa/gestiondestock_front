@@ -1,0 +1,59 @@
+<div class="row mb-1 mr-0 custom-border">
+  <div class="col-md-1 mb-1 mr-0 border-right" >
+    <div><img src="assets/user.png" width="100px" height="100px" class="rounded-circle"></div>
+  </div>
+
+  <div class="col-md-5 border-right">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+        <div class="col-11">{{user.nom}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
+        <div class="col-md-11">{{user.prenom}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-telephone blue-color"></i></div>
+        <div class="col-md-11">{{user.entreprise?.numTel}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 border-right mb-1 mt-1">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-house-check blue-color"></i></div>
+        <div class="col-md-11">{{user.adresse?.adresse1}} &nbsp;{{user.adresse?.adresse2}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-geo-alt-fill blue-color"></i></div>
+        <div class="col-md-11"> {{user.adresse?.codePostale}} &nbsp;{{user.adresse?.ville}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="bi bi-globe-americas blue-color"></i></div>
+        <div class="col-md-11"> {{user.adresse?.pays}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-3">
+    <div class="row">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link btn-primary"><i class="bi bi-pencil"></i> &nbsp;Modifier</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link btn-danger"><i class="bi bi-trash3"></i> &nbsp;Supprimer</button>
+
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link btn-primary"><i class="bi bi-card-list"></i> &nbsp;Details</button>
+      </div>
+    </div>
+  </div>
+</div>

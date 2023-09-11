@@ -1,0 +1,42 @@
+
+
+<div class="container text-center">
+  <div class="card" style="width: 500px; height: auto; margin: auto">
+    <div class="col">
+      <div class="col-md-12 m-3">
+        <h2>Nouvelle catégorie</h2>
+      </div>
+      <hr>
+
+      <div class="col-md-11 m-3">
+        <form>
+          <div class="alert-danger alert" *ngIf="errorsMsg.length > 0">
+            <div *ngFor="let msg of errorsMsg">
+              <span>{{msg}}</span>
+            </div>
+
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <input type="text" class="form-control"name="cadeCategory" placeholder="Code catégorie" aria-label="Code catégorie"
+                     [(ngModel)]="newCategoryForm.code">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="Désignation" placeholder="Désignation" aria-label="Désignation"
+              [(ngModel)]="newCategoryForm.designation">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-11 text-end m-3">
+        <button type="button" class="btn btn-danger mr-3" (click)="cancel()">
+          <i class="bi bi-x-circle"></i> &nbsp;Annuler</button>
+        <button type="button" class="btn btn-primary" (click)="saveCategory()">
+          <i class="bi bi-box-arrow-down"></i> &nbsp;Enregistrer</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-4" *ngIf="isImportedButton">
+    <button type="button" class="btn btn-warning"><i class="bi bi-cloud-arrow-down-fill"></i>&nbsp;Importer</button>
+  </div>
+  <div class="col-md-4" *ngIf="isExportedButton">
+    <button type="button" class="btn btn-success">
+      <i class="bi bi-cloud-arrow-up-fill"></i>&nbsp;Exporter</button>
+  </div>
+  <div class="col-md-4" *ngIf="isNouveauButton">
+    <button type="button" class="btn btn-primary" (click)="bouttonNouveauClickAction()">
+      <i class="bi bi-plus-circle-fill" ></i>&nbsp;Nouveau</button>
+  </div>
+
+
+</div>
