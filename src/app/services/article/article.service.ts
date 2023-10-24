@@ -31,4 +31,8 @@ export class ArticleService {
   findArticleByCode(code:string):Observable<ArticleDto>{
     return this.articlesService.findByCodeArticle(code);
   }
+
+  findArticlesWithMvtStock():Observable<Array<ArticleDto>>{
+    return this.articlesService.findAllArticleWithMvtStock();
+  }
 }

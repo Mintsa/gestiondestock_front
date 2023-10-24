@@ -10,25 +10,24 @@
 
 
 
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" id="accordionExample{{article.id}}" *ngFor="let article of articlesList">
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOne'+article.id" aria-expanded="true" aria-controls="collapseOne" (click)="getMvtStock(article.id)">
           <div class="col m-3">
-            <app-details-mvtsk-article></app-details-mvtsk-article>
+            <app-details-mvtsk-article [article]="article"></app-details-mvtsk-article>
           </div>
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div id="collapseOne{{article.id}}" class="accordion-collapse collapse show" [attr.data-bs-parent]="'#accordionExample'+article.id">
         <div class="accordion-body">
-          <app-details-mvt-stk></app-details-mvt-stk>
-          <app-details-mvt-stk></app-details-mvt-stk>
-          <app-details-mvt-stk></app-details-mvt-stk>
+          <app-details-mvt-stk *ngFor=" let mvtStock of mapMvtStocks.get(article.id!)" [mvtStockLine]="mvtStock!"></app-details-mvt-stk>
+
       </div>
     </div>
 
   </div>
-
+  </div>
 
 
   <div class="row m-3">

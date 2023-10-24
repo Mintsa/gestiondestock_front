@@ -1,28 +1,28 @@
 <div class="row mb-1 mr-0 custom-border">
   <div class="col-md-1 mb-1 mr-0 border-right" >
-    <div><img src="assets/camera.jpg" width="100px" height="100px" class="rounded-circle"></div>
+    <div><img [src]="article.photo? article.photo :'assets/camera.jpg'" width="100px" height="100px" class="rounded-circle"></div>
   </div>
 
   <div class="col-md-5 border-right">
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
-        <div class="col-11">Code article</div>
+        <div class="col-11">{{article.codeArticle}}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
-        <div class="col-md-11">Désignation</div>
+        <div class="col-md-11">{{article.designation}}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-currency-dollar blue-color"></i></div>
-        <div class="col-md-11">Prix HT</div>
+        <div class="col-md-11">{{article.prixUnitaireHt}}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-currency-dollar blue-color"></i></div>
-        <div class="col-md-11">Prix TTC</div>
+        <div class="col-md-11">{{article.prixUnitaireTtc}}</div>
       </div>
     </div>
   </div>

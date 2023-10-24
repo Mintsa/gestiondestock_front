@@ -1,23 +1,23 @@
 <div class="row mb-1 mr-0 custom-border">
   <div class="col-md-1 mb-1 mr-0 border-right" >
-    <div><img src="assets/camera.jpg" width="100px" height="100px" class="rounded-circle"></div>
+    <div><img [src]=" cltFrs.photo ? cltFrs.photo : 'assets/camera.jpg'" width="100px" height="100px" class="rounded-circle"></div>
   </div>
 
   <div class="col-md-5 border-right">
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
-        <div class="col-11">Nom</div>
+        <div class="col-11">{{ cltFrs.nom }}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-info-circle blue-color"></i></div>
-        <div class="col-md-11">Prenom</div>
+        <div class="col-md-11">{{ cltFrs.prenom }}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-currency-dollar blue-color"></i></div>
-        <div class="col-md-11">0761116701</div>
+        <div class="col-md-11">{{ cltFrs.numTel }}</div>
       </div>
 
     </div>
@@ -27,17 +27,17 @@
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="bi bi-qr-code blue-color"></i></div>
-        <div class="col-11">CMD-123456</div>
+        <div class="col-11">{{commandeItem.code}}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-calendar-check-fill blue-color"></i></div>
-        <div class="col-md-11">12/06/2023</div>
+        <div class="col-md-11">{{commandeItem.dateCommande}}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="bi bi-cart-dash blue-color"></i></div>
-        <div class="col-md-11">LIVREE</div>
+        <div class="col-md-11">{{commandeItem.etatCommande}}</div>
       </div>
 
     </div>

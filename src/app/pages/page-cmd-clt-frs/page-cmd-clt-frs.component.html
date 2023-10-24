@@ -9,32 +9,28 @@
     </div>
   </div>
 
-
-
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
+  <div class="accordion" *ngFor="let order of orders" id="accordionExample{{order.id}}">
+    <div class="accordion-item" >
       <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOne'+order.id" aria-expanded="false" aria-controls="collapseOne">
           <div class="col m-3">
-            <app-details-cmd-frs></app-details-cmd-frs>
+            <app-details-cmd-frs [commandeItem]="order"  [origine]="origine"></app-details-cmd-frs>
           </div>
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div id="collapseOne{{order.id}}" class="accordion-collapse collapse show" [attr.data-bs-target]="'#accordionExample'+order.id">
         <div class="accordion-body">
-          <app-detail-commande></app-detail-commande>
-          <app-detail-commande></app-detail-commande>
-          <app-detail-commande></app-detail-commande>
-          <app-detail-commande></app-detail-commande>
+          <app-detail-commande *ngFor="let entry of mapLigneCommandes.get(order.id)" [cltFrsItem]="entry">
+          </app-detail-commande>
         </div>
 
         <div class="card-footer">
           <div class="row">
             <div class="col-md-6 bi-text-left">
-              <h5>12 Articles commandés.</h5>
+              <h5>{{mapLigneCommandes.get(order.id).length}} Articles commandés.</h5>
             </div>
             <div class="col-md-6 text-end">
-              <h5>Total commande: 12000 </h5>
+              <h5>Total commande: {{mapOrderTotalPrice.get(order.id)}} </h5>
             </div>
 
           </div>
@@ -43,8 +39,7 @@
       </div>
 
     </div>
-
-
+  </div>
 
     <div class="row m-3">
       <div class="col-md-12 text-center">

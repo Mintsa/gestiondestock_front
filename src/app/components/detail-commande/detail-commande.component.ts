@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-detail-commande',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./detail-commande.component.scss']
 })
 export class DetailCommandeComponent {
-
+  @Input()
+  cltFrsItem:any ={}
 }

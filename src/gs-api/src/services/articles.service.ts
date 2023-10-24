@@ -23,6 +23,7 @@ class ArticlesService extends __BaseService {
   static readonly findHistoriaueCommandeClientPath = '/gestiondestock/v1/articles/historique/commandeclient/{idArticle}';
   static readonly findHistoriqueCommandeFournisseurPath = '/gestiondestock/v1/articles/historique/commandefournisseur/{idArticle}';
   static readonly findHistoriqueVentesPath = '/gestiondestock/v1/articles/historique/vente/{idArticle}';
+  static readonly findAllArticleWithMvtStockPath = '/gestiondestock/v1/articles/mvtstk/all';
   static readonly findByIdPath = '/gestiondestock/v1/articles/{idArticle}';
 
   constructor(
@@ -336,6 +337,45 @@ class ArticlesService extends __BaseService {
   findHistoriqueVentes(idArticle: number): __Observable<Array<LigneVenteDto>> {
     return this.findHistoriqueVentesResponse(idArticle).pipe(
       __map(_r => _r.body as Array<LigneVenteDto>)
+    );
+  }
+
+  /**
+   * Renvoi la liste des articles ayant un mvtstock
+   *
+   * Cette methode permet de chercher et renvoyer la liste des articles qui sont rattachés à un mvt de stock. dans la BDD
+   * @return La liste des article / Une liste vide
+   */
+  findAllArticleWithMvtStockResponse(): __Observable<__StrictHttpResponse<Array<ArticleDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gestiondestock/v1/articles/mvtstk/all`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<ArticleDto>>;
+      })
+    );
+  }
+  /**
+   * Renvoi la liste des articles ayant un mvtstock
+   *
+   * Cette methode permet de chercher et renvoyer la liste des articles qui sont rattachés à un mvt de stock. dans la BDD
+   * @return La liste des article / Une liste vide
+   */
+  findAllArticleWithMvtStock(): __Observable<Array<ArticleDto>> {
+    return this.findAllArticleWithMvtStockResponse().pipe(
+      __map(_r => _r.body as Array<ArticleDto>)
     );
   }
 

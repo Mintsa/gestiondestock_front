@@ -6,12 +6,11 @@
     <div class="row custom-border p-3">
       <div class="col-md-5 border-right">
         <form>
-          <div class="col-md-12 mb-3">
-            <input type="text" class="form-control" placeholder="Code Commade">
+          <div class="alert-danger alert" *ngIf="errorsMsgs && errorsMsgs.length > 0">
+            <span *ngFor="let msg of errorsMsgs">{{msg}}</span>
           </div>
-          <div class="mb-3">
-
-            <input type="text" class="form-control"  placeholder="Date commande">
+          <div class="col-md-12 mb-3">
+            <input type="text" name="code commande" class="form-control" placeholder="Code Commade" [(ngModel)]="codeCommande">
           </div>
           <div class="mb-3">
             <select class="form-select" name="cltFrs" [(ngModel)]="cltFrsForm">
@@ -57,29 +56,26 @@
       <div class="col-auto">
         <input type="text"  class="form-control"name="Code article" placeholder="Code article" (input)="searchCltFrs()" [(ngModel)]="searchArticleCode">
       </div>
-      <span>Search value: {{searchCltFrs.id}}</span>
       <div class="col-auto">
-        <input type="number" class="form-control"  placeholder="Quantité">
+        <input type="number" name="Quantite" class="form-control"  placeholder="Quantité" [(ngModel)]="quantite">
       </div>
       <div class="col-auto">
-        <input type="number" class="form-control"  placeholder="Prix unitaire">
+        <input type="number" name="Prix unitaire" class="form-control"  placeholder="Prix unitaire" [(ngModel)]="searchCltFrsForm.prixUnitaireHt">
       </div>
 
       <div class="col-auto">
-        <button class="btn btn-success" type="button"><i class="bi bi-plus"></i></button>
+        <button class="btn btn-success" type="button"(click)="addOrderLine()"><i class="bi bi-plus"></i></button>
       </div>
     </form>
   </div>
 
   <!--- Detail article-->
   <div class=" row custom-border mt-2" style="max-height:300px; overflow-y:scroll">
-    <app-detail-commande></app-detail-commande>
-    <app-detail-commande></app-detail-commande>
-    <app-detail-commande></app-detail-commande>
+    <app-detail-commande *ngFor="let item of orderLineCartItem" [cltFrsItem]="item"></app-detail-commande>
   </div>
 
-  <div class=" row custom-border mt-2 text-end" >
-     <h2>Total de la commande :    4500</h2>
+  <div class=" row custom-border mt-2 text-end" *ngIf="orderLineCartItem.length > 0">
+     <h2>Total de la commande :    {{totalPrice}} &nbsp;Euros</h2>
   </div>
 
 
@@ -87,7 +83,7 @@
   <div class="col-md-11 text-end m-3">
     <button type="button" class="btn btn-danger mr-3">
       <i class="bi bi-x-circle"></i> &nbsp;Annuler</button>
-    <button type="button" class="btn btn-primary">
+    <button type="button" class="btn btn-primary" (click)="enregistreOrder()">
       <i class="bi bi-box-arrow-down"></i> &nbsp;Enregistrer</button>
   </div>
 

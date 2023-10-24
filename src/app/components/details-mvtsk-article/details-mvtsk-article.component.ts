@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ArticleDto } from 'src/gs-api/src/models';
 
 @Component({
   selector: 'app-details-mvtsk-article',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./details-mvtsk-article.component.scss']
 })
 export class DetailsMvtskArticleComponent {
+  @Input()
+  article:ArticleDto = {}
 
 }

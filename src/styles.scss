@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+body {
+  background-color: #eff2f5 !important;
+}
+
+.backroung-grey {
+  background-color: #eff2f5 !important;
+}
+
+.border-none {
+  border:none !important;
+}
+.min-height-80 {
+  min-height: 80px;
+}
+
+.border-right {
+  border-right: 1px solid #9ca1a6 !important;
+}
+.custom-border {
+  border: solid #9ca1a6 !important;
+  border-radius: 5px;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.blue-color {
+  color:#037bfe;
+}
